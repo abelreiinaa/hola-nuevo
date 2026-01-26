@@ -82,6 +82,19 @@ function calcularResta() {
         mostrarError();
     }
 }
+// Nueva Función Multiplicación
+function calcularMultiplicacion() {
+    var num1 = parseFloat(document.getElementById("num1").value);
+    var num2 = parseFloat(document.getElementById("num2").value);
+
+    if (!isNaN(num1) && !isNaN(num2)) {
+        var multiplicacion = num1 * num2;
+        document.getElementById("resultado").innerHTML = "El resultado de la multiplicación es: " + multiplicacion;
+        document.getElementById("resultado").style.color = "blue";
+    } else {
+        mostrarError();
+    }
+}
 
 </script>
 
