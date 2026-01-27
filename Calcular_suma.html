@@ -44,7 +44,10 @@
                 <input type="text" id="num2">
             </div>
             <input type="button" value="Calcular suma" style="background-color: green;" onclick="calcularSuma()">
+            <input type="button" value="Calcular multiplicacion" style="background-color: blue;" onclick="calcularMultiplicacion()">
+            <input type="button" value="Calcular division" style="background-color: gold;" onclick="calculardivision()">
             <input type="button" value="Calcular resta" style="background-color: red;" onclick="calcularResta()">
+        
         </form>
 
         <div id="resultado"></div>
@@ -78,6 +81,29 @@ function calcularResta() {
         var resta = num1 - num2;
         document.getElementById("resultado").innerHTML = "El resultado de la resta es: " + resta;
         document.getElementById("resultado").style.color = "red";
+    } else {
+        mostrarError();
+    }
+}
+// NUEVA FUNCIÓN: COCIENTE
+function calcularCociente() {
+    var num1 = parseFloat(document.getElementById("num1").value);
+    var num2 = parseFloat(document.getElementById("num2").value);
+
+    if (!isNaN(num1) && !isNaN(num2)) {
+        var multi = num1 * num2;
+        document.getElementById("resultado").innerHTML = "El resultado de la multiplicación es: " + multi;
+        document.getElementById("resultado").style.color = "blue"; // Texto azul
+        if (num2 === 0) {
+            // Evitar dividir por cero
+            document.getElementById("resultado").innerHTML = "Error: No se puede dividir por cero";
+            document.getElementById("resultado").style.color = "black";
+        } else {
+            var cociente = num1 / num2;
+            // .toFixed(2) limita a 2 decimales para que se vea mejor
+            document.getElementById("resultado").innerHTML = "El cociente es: " + cociente.toFixed(2);
+            document.getElementById("resultado").style.color = "orange";
+        }
     } else {
         mostrarError();
     }
